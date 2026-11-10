@@ -1,20 +1,50 @@
-\begin{table}[h] % begin table environment with placement 'here' [h]
-\centering % centre the table on the page
-\resizebox{\textwidth}{!}{% resize box environment starts here
-\begin{tabular}{|l|l|l|l|l|}% start tabular, with vertical lines between cells
-\hline %Horizontal line, at the top of the table
-\rowcolor[HTML]{96FFFB} % set background colour for cells
-\textbf{John} & \textbf{Mark} & \textbf{David} & \textbf{Ivan} & \textbf{Ben} \\ % the contents of the firsdt row
-\hline % followed by a horizontal line
-\rowcolor[HTML]{FFCCC9} % set hbackground colour fot the next row
-a&a&a&a&a\\ % row elements in a table are separated by '&'
+% begin table environment with placement 'htbp' [htbp]
+% h (here): Try to place the float approximately where it appears in the source text.
+% t (top): If that fails, try to place it at the top of the current or next page.
+% b (bottom): If that fails, try to place it at the bottom of the current or next page.
+% p (page): If that fails, put it on a special page dedicated entirely to floats
+\begin{table}[htbp]
+
+% centre the table on the page
+\centering
+
+% resize box environment starts here. 
+% This sets the width of the enclosed object (a tabular environment in this case)  to match the width of the text elsewhere on the page. 
+% We could use different options here, but this one looks good
+% First argument (\textwidth): Sets the target width of the object to the page's text width.
+% Second argument (!): Tells LaTeX to calculate the height automatically to keep the original proportions and avoid distorting or stretching the content.
+\resizebox{\textwidth}{!}{
+% start tabular, with vertical lines '|' between cells and varions cells left: 'l' centre:'c' or right:'r' justified
+% the letters 'l' 'c' 'r' indicate whether cell contents should be left- centre- or right-justified
+\begin{tabular}{|l|c|c|c|r|} 
+% Display a horizontal line, at the top of the table
 \hline
-a&a&a&a&a\\ 
+
+% set background colour for cells
+\rowcolor[HTML]{96FFFB}
+% The contents of the first row. 
+% At the end of this '\\' is a hard newline separator.
+\textbf{John} & \textbf{Mark} & 
+\textbf{David} & \textbf{Ivan} & \textbf{Ben} \\ 
+% followed by a horizontal line
+\hline 
+
+ % set the background colour fot the next row
+\rowcolor[HTML]{FFCCC9}
+% row elements in a table are separated by '&'
+% rows are terminated with newline '\\'
+Data 1&Data 2&Data 3&Data 4&Data 5\\
 \hline
-a&a&a&a&a\\ 
+% rows are terminated with newline '\\'
+Data 6&Data 7&Data 8&Data 9&Data 10\\
 \hline
-\end{tabular}% end tabular
-} % resize box environment ends here
+% end tabular environment
+\end{tabular}
+% resize box environment ends here
+}
+% add a caption to our table
 \caption{Staff Members}
+% add a label, used for cross referenceing to the table from elsewhere in the text. 
 \label{tab:my-table}
-\end{table}
+% end the table environment
+\end{table} 

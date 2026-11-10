@@ -1,21 +1,38 @@
-\documentclass{article}
-\usepackage{graphicx}
+\documentclass{article} % every document needs a document class, and only one
+\usepackage{graphicx} % use various packages for layour, font colours etc.
 \usepackage[table,xcdraw]{xcolor}
-\usepackage{appendix}
-\usepackage{minted}
+\usepackage{appendix} % allow us to change from 'regular' chapters to 'appendices'
+\usepackage[cache=false]{minted} % provide code formatting for imported code files
+\usemintedstyle{pastie} % This makes mointed comments grey
+\usepackage{caption}
 
-\begin{document}
-\section{First Section}
-Stuff here. More stuff here
-\subsection{sub section of whatever the last one was}
-more stuff again.
+\begin{document} % begin the document itself
+\section{First Section} % include a section (chapter)
+This is a simple example of a basic latex document (basic.tex) that includes some features that may be useful to students and new users of \LaTeX. % regular text
+\subsection{sub section of whatever the last one was}  % sample sub-section
+more stuff again. % more text
 
-\section{Tables}
-See table \ref{tab:my-table} for a list of school staff at \textbf{TU Dublin Blanchardstown}, School of Electrical and Electronic Engineering.
-\input{mytable}
+\section{Tables} % another section/chapter
+See table \ref{tab:my-table} for a list of school staff at \textbf{TU Dublin Blanchardstown}, School of Electrical and Electronic Engineering. % a line of text including a reference to the defined label tab:my-table
+If you look at the table, you will see a few features of tables, including that we can include or omit the horizontal lines above, or within the table. Look for \texttt{\textbf{\detokenize{hline}}} instructions in the \textbf{\texttt{mytable.tex}} file.\\
+\input{mytable} % read the contents of the table from a separate file
 
+\appendix % start the appendices section
 
-\appendix
-\section{Code}
-\inputminted{c}{hello.c}
-\end{document}
+% Appendic with some sample C code
+\section{Code} % start the code section
+
+% import and format the file hello.c
+\inputminted[breaklines,breakanywhere,linenos]{c}{hello.c} % import and format the file hello.c
+
+% Appendix explaining the \LaTeX code
+\section{Explanation of \LaTeX code files}
+The following file is the file representing the table above \texttt{mytable.tex}.
+\inputminted[breaklines,breakanywhere,linenos]{latex}{mytable.tex}
+\begin{figure}[H]
+    \caption{Sample latex for the table: \textbf{\texttt{mytable.tex}}} % add a caption to our table
+    \label{tab:my-table-code}
+\end{figure}
+%\end{figure}
+
+\end{document} % end the document
