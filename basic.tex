@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{appendix}
+\usepackage{minted}
+
+\begin{document}
+\section{First Section}
+Stuff here. More stuff here
+\subsection{sub section of whatever the last one was}
+more stuff again.
+
+\section{Tables}
+See table \ref{tab:my-table} for a list of school staff at \textbf{TU Dublin Blanchardstown}, School of Electrical and Electronic Engineering.
+\input{mytable}
+
+
+\appendix
+\section{Code}
+\inputminted{c}{hello.c}
+\end{document}
